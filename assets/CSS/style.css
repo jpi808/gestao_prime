@@ -1,0 +1,173 @@
+
+
+/*root:seletor para elementos raiz do documento, usado para definir variaveis CSS Globais*/
+:root {
+--bg--dark:#190435;/*variavel para cor de fundo*/
+--bg--card:#0f111a; /*variavel de cord de fundo do card*/
+--primary-neon: #7b2ff7;/*variavel de cor neon primaria*/
+--segundary--neon: #7b7b7b; /*variavelde cor neon secundaria*/
+--text-main: #ffffff ;/*variavel para cor do texto principal(branco)*/
+--text-dim: #a0a0a0; /*variavel para texto secundario(cinza)*/
+--transition: all 0.3s ease;/*variavel de transição suave de 0.3s*/ 
+}
+/*removendo o CSS padrao do navegador*/
+* {
+    margin: 0;/*remove todas as margens externas*/
+    padding: 0;/*remove todos os preemchimentos internos*/
+    box-sizing: border-box;/*inclui padding e border na largura/altura total do elemento*/
+}
+html {
+    scroll-behavior: smooth;/*define a rolagem suave para ancoras*/
+}
+body {
+ font: goblin one, sans-serif;/*define a familia da fonte como primaria*/
+ background-color: var(--bg--dark);
+ color: var(--text-main);
+ line-height: 1.6; /*define a altura da linha para melhor legibilidade*/ 
+ overflow-x: hidden;/*esconde a barra horizontal*/
+
+}
+/*classe para o conteiner centralizado*/
+.container {
+    max-width: 1200px;/*define a largura maxima do container*/
+    margin: 0 auto;/*centraliza o container horizontalmente*/
+    padding: 0 20px;/*adicionar preenchimento lateral*/
+}
+/*
+classe para a barra de navegação
+*/
+.navbar {
+   height: 80px;/*define altura fixa da navbar*/
+   display: flex;/*usa flexbox para o layout*/
+   align-items: center;
+   background-color: rgba(15, 17, 26, 0.95);
+   position: sticky;/*fixa o navbar no topo durante a rolagem*/
+   top: 0;/*posiciona o topo do viewport*/
+   z-index: 1000;/*garante que o navbar fique acima dos outros elementos*/
+   border-bottom: 1px solid;
+}
+
+/*flex-nav 
+classe para o leyout flexivel da navegação
+*/
+.flex-nav {
+    display: flex;/*flexbox para alinhamneto*/
+    justify-content: space-between;/*justificar espaço entre os elementos (itens) igualmente*/
+    align-items: center;/*alinhar os itens verticalmente ao centro*/
+    width: 100%;/*largura total*/
+
+}
+/*logo*/
+.logo {
+    font-size: 1.5rem;/*tamanho de font maior */
+    font-weight: 700;/*peso da fonte*/
+letter-spacing: -1px;/*espacamento entre as letras fica reduzido*/
+}
+/*estiliza a parte do logo colorida*/
+.logo span {
+    color: var(--primary-neon);/*cor do texto usando variavel*/
+}
+
+/*lista de menu*/
+
+.nav-menu ul {
+    display: flex;/*layout flexivel horizontal*/
+    list-style: none;/*remover os marcadores da lista*/
+}
+
+.nav-menu ul li a {
+    color: var(--text-dim);/*cor do texto usando variavel*/
+text-decoration: none;/*remove o sublinhado*/
+margin: 0 15px; /*espaçamento apenas nas laterais*/
+font-size: 0.9rem;/*fonte no tamanho menor*/
+transition: var(--transition);/*transição suave*/
+}
+/*estado de hover dos links*/
+.navmenuaul li a:hover {
+    color: var(--segundary--neon);/*cor do texto usando variavel*/
+}
+
+/*classe dos botoes de entrar e criar sua conta*/
+.btn {
+    padding: 10px 22px;/*espaçamento interno*/
+    border-radius: 8px;/*bordas  arredondadas*/
+    text-decoration: none;/*remove o sublinhado*/
+    font-weight: 600;
+    transition: var(--transition);
+    display: inline-block;/*exibe como um bloco em linha*/
+}
+.btn-neon{
+    background: linear-gradient(135deg, var(--primary-neon), #9d50bb);
+    color: #ffff;
+    box-shadow: 0 4px 15px rgba(123, 47, 247, 0.3);/*sombra colorida*/
+}
+.btn-neon:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(123, 47, 247, 0.3)
+}
+.btn-outline {
+    border: 1px solid var(--primary-neon);
+    color: #fff;
+}
+
+.btn-outline:hover {
+    background: rgba(123, 47, 247, 0.1);
+}
+
+/*hero section*/
+
+/*hero clase para seção principal*/
+.hero {
+    padding: 100px 0;/*prenchimento vertical*/
+    min-height: calc(100vh - 80px);/*altura minima da view port menos o navbar*/
+    display: flex;/*flexbox para centralizar */
+    align-items: center;/*alinha os items ao centro*/
+}
+
+/*grid hero grid para o layout da seção hero*/
+.grid-hero {
+    display: grid; /*usa css grid*/
+    grid-template-columns: 1fr 1fr; /*duas colunas iguais*/
+    gap: 40px; /*espaçamento entre as colunas*/
+    align-items: center;/*alinha as colunas ao centro*/
+}
+
+/*classe do texto gradiente*/
+.text-gradiente {
+background: linear-gradient(to right, var(--primary-neon), var(--segundary--neon));/* cor do fundo gradiente horizontal*/
+-webkit-background-clip: text;/*aplicar gradiente ao texto*/
+-webkit-text-fill-color: transparent;/*torna o texto trasparente para mostrar p gradiente*/
+}
+
+/*titulo da seção hero*/
+.hero-text h1 {
+    font-size: 3.5rem;/*tamanho da fonte*/
+    line-height: 1.1;/*altura da linha*/
+    margin-bottom: 20px;
+}
+/*paragrafo da seção*/
+.herp-text p{
+    font-size: 1.1rem;/*fonte tamano medio*/
+    color: var(--text-dim);
+    margin-bottom: 30px;
+    max-width: 500px;
+}
+
+.card-mokup{
+    border-radius: 20px;
+    position: relative;/*posicionamento */
+}
+.card-mokup img {
+    width: 100%;
+}
+
+
+
+/*responsividade para outras telas*/
+@media (max-width: 992) {
+    .nav-menu
+    .nav-btns {
+        display: none;/*ocultar os elementos*/
+    }
+    
+}
